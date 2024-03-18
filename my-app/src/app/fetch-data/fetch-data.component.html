@@ -1,0 +1,38 @@
+
+<div class="mat-elevation-z8 container">
+    <table mat-table [dataSource]="data" matSort>
+  
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="symbol"> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="open">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="open"> Open </th>
+        <td mat-cell *matCellDef="let element"> {{element.open}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="nifty">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="nifty"> nifty </th>
+        <td mat-cell matBadgeColor="accent" *matCellDef="let element"> {{element.nifty}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="pctChange">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="pctChange"> pctChange </th>
+        <td mat-cell *matCellDef="let element"> {{element.pctChange}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="signal">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="signal"> Signal </th>
+        <td mat-cell *matCellDef="let element"> {{element.openHighLowSignal}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+</div>
+<mat-paginator [pageSizeOptions]="[10, 20,30]"
+               showFirstLastButtons
+               aria-label="Select page">
+</mat-paginator>
+  
